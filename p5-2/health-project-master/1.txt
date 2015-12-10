@@ -1,0 +1,167 @@
+// Nutritionix AJAX request
+var List;
+
+function getFoods() {
+	var userInput = $('#search-input').val();
+	
+	$('#results-text').text('Results for ' + userInput + '!');
+	
+	var foodURL = 'https://api.nutritionix.com/v1_1/search/' + userInput + '?results=0:5&fields=item_name,brand_name,item_id,nf_calories&appId=138d97a2&appKey=16dcfdb8ad18dd1af6382f5d2d0ea49d';
+	
+	$('#results-list').text('');
+	
+	var apiTimeOut = setTimeout(function() {
+		$('#results-text').text('No Results.');
+		$('#indicate').text('Error Load Results')
+	}, 8000);
+	
+	$.getJSON(foodURL, function(data) {
+		console.log(data);
+		
+		var foodList = data.hits;
+		
+		List = [];
+		
+		for (var i = 0; i < foodList.length; i++) {
+			var foodItem = foodList[i];
+			
+			var foodBrandName = foodItem.fields.brand_name;
+			var foodName = foodItem.fields.item_name;
+			var foodCalories = foodItem.fields.nf_calories;
+			var foodServingSize = foodItem.fields.nf_serving_size_qty;
+			var foodScore = foodItem._score;
+			
+			
+			$('#results-list').append('<li>' + '<h4>' + foodName + '</h4>' + '<ul class="food-list">' + '<li>' + 'Brand Name: ' + foodBrandName + '</li>' + '<li>' + 'Calories: ' + foodCalories + '</li>' + '<li>' + 'Serving Size: ' + foodServingSize + '</li>' + '<li>' + 'Score: ' + foodScore + '</li>' + '</ul>' + '<button>' + 'Add To Your List' + '</button>' + '</li>');
+			
+			List.push({
+				name: foodName,
+				brandName: foodBrandName,
+				calories: foodCalories,
+				servingSize: foodServingSize,
+				score: foodScore,
+			})
+			
+		};
+		clearTimeout(apiTimeOut);
+		
+	}).error(function() {
+		$('#results-text').text('No Results.');
+		$('#indicate').text('Error Load Results');
+	})
+	
+};
+
+______________
+
+var resultsList = Backbone.Collection.extend({
+		
+		model: result,
+		
+		getAdd: function() {
+			return this.where({add:true});
+		}
+		
+	});
+	
+	var selection = Backbone.Model.extend({
+		
+		fields: {
+			name: '',
+			calories: '',
+			servingSize: '',
+			remove: false			
+		},
+		
+		remove: function() {
+			this.set('checked', !this.get('remove'))
+		}
+		
+	});
+	
+	var selectedList = Backbone.Collection.extend({
+		
+		model: selected,
+		
+		
+		getRemoved: function() {
+			return this.where({remove:true});
+		}
+		
+	});
+	
+	var selected = new resultsList([
+		new selection({name: '', brandName: '', calories: '', servingSize: '', score: ''})
+		
+	
+	]);
+	
+	var selectionView = Backbone.View.extend({
+		tagName: 'li',
+		
+		events: {
+			'click' : 'remove'
+		},
+		
+		initialize: function() {
+			this.listen(this.model, 'change', this.render);
+			
+		},
+		
+		render: function() {
+			this.$el.html('<li>' + '<p>' + '</p>' + '<p>' + '</p>' + '<input type="checkbox" value="" name="">' + '</li>')
+			this.$('input').prop('checked', this.model.get('checked'));
+			
+			return this;
+		},
+		
+		remove: function() {
+			this.model.toggle();
+		}
+		
+	});
+	
+	var App = Backbone.View.extend({
+		el: $('#user-list'),
+		
+		initialize: function() {
+			this.totalItems = $('#total-items');
+			this.totalCal = $('#total-cal');
+			this.selected = $('#user-list');
+			
+			this.listenTo(user-list, 'change', this.render);
+			
+			user-list.each(function(item) {
+				var view = new selectionView({ model: item});
+				this.list.append(view.render().el);
+				
+			}, this);
+		},
+		
+		render: function() {
+			var totalItems = 0;
+			var totalCal = 0;
+			
+			_.each(selected.getRemoved(), function(elem) {
+				totalItems--;
+				totalCal -= elem.get('calories');
+				
+			});
+			
+			this.totalItems.text(totalItems);
+			this.totalCal.text(totalCal);
+			
+			return this;
+			
+		}
+		
+	});
+	
+	new app();
+	
+	
+	(function () {
+	
+	
+	
+})();

@@ -1,0 +1,68 @@
+<ul id="places-list" class="places-list" data-bind="visible: viewToggle() ==='hide', foreach: Locations,">						
+							<li data-bind="click: $parent.seeMarker, text: name">
+								<!-- <h5 data-bind="text: placeName"></h5> -->
+								<span data-bind="text: name"></span>
+							</li>
+						</ul>
+						
+						
+						
+						
+-----
+
+	//search filter
+	self.searchQuery = ko.observable('');
+	
+	Locations.forEach(function(place) {
+    self.allPlaces.push(new Place(place));
+	console.log(place);
+	});
+  
+	self.allPlaces.forEach(function(place) {
+		console.log(place);
+		var markerOptions = {
+			map: map,
+			position: place.location
+		};
+		place.marker = new google.maps.Marker(markerOptions);
+		
+	});
+	
+	// filter
+	self.visiblePlaces = ko.observableArray();
+	 
+	self.allPlaces.forEach(function(place) {
+		console.log(place);
+		self.visiblePlaces.push(place);
+		console.log(place);
+	});
+	
+	
+	self.filterMarkers = function() {
+		var searchInput = self.searchQuery().toLowerCase();
+		
+		self.visiblePlaces.removeAll();
+		
+		self.allPlaces.forEach(function(place) {
+			console.log(place);
+			place.marker.setVisible(false);
+			
+			if(placeName.toLowerCase().indexOf(searchInput) !== -1) {
+				self.visiblePlaces.push(place);
+			};
+		});
+		
+		self.visiblePlaces().forEach(function(place) {
+			console.log(place);
+			place.marker.setVisible(true);
+		});
+	};
+	
+	function Place(dataObj) {
+		this.name = dataObj.name;
+		this.location = dataObj.location;
+		
+		this.marker = null;
+	};
+	
+	//			-------------------			//

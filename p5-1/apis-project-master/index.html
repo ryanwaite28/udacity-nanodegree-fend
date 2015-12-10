@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>The Dox</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap.css">
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWq_bL3W2U17sffyrBJdzsxeFT445s9EU&libraries=places&callback=initMap"></script>
+	</head>
+	
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row" style="border-bottom: 1px solid black;">
+				<div class="col-md-2">
+					<h3 class="text-center text-shadow place-text">Places</h3>
+				</div>
+				
+				<div class="col-md-2">
+					<div class="input-div">
+						<form data-bind="submit: filteredResults">
+							<input type="text" id="search-filter" class="search-filter cool-bar" placeholder="Search Filter" data-bind="value: searchQuery"/>
+							<input id="search-btn" value="Search" type="submit">
+							<input id="reset-btn" value="Reset" type="submit" data-bind="click: resetList"
+						</form>
+					</div>
+				</div>
+				
+				<div class="col-md-8">
+					<div class="list-div">
+						<ul id="places-list" class="places-list" data-bind="visible: viewToggle() ==='hide', foreach: filteredList">						
+							<li data-bind="click: $parent.seeMarker, ">
+								<p data-bind="text: placeName"></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row" style="border-bottom: 1px solid black;">
+				<div class="col-md-9" style="padding: 0;">
+					<div id="map-div" class="map-div">
+			
+					</div>
+				</div>
+			
+				<div class="col-md-3 news-div">
+					<div class="nytimes-container">
+						<div class="news-text">
+							<h3 id="nytimes-header"  class="text-center" style="border-bottom: 1px solid black;"></h3>
+						</div>
+						<div class="news-list">
+							<ul id="nytimes-articles" class="article-list"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<!-- Sctipts -->
+		<script type="text/javascript" src="knockout-3.4.0.js"></script>
+		<script src="jQuery.js"></script>
+		<script src="script.js"></script>
+		
+	</body>
+	
+</html>

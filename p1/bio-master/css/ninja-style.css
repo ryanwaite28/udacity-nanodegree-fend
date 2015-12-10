@@ -1,0 +1,64 @@
+#btn {
+	position: absolute;
+	top: 3px;
+	left: 5px;
+}
+.nav-bar {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: black;
+
+}
+.img-one {
+	width: 100%;
+	padding: 30px;
+}
+.nav-bar li {
+	display: inline-block;
+	padding: 10px 40px 10px 40px;
+	color: white;
+}
+.nav-bar li:hover {
+	color: blue;
+	padding: 10px 40px 7px 40px;
+	border-bottom: 3px solid blue;
+}
+.vision-1 {
+	text-shadow: 2px 3px 6px black;
+}
+
+/* main divs */
+.personal-div {
+	background-image: url("http://i.imgur.com/05ZV2ZT.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.skills-div {
+	background-image: url("http://images7.alphacoders.com/478/478769.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.skills-div h1, .skills-div p, .personal-div p {
+	color: white;
+}
+.skills-div p, .personal-div p {
+	background-color: black;
+	opacity: 0.8;
+}
+
+.goals-div {
+	background-image: url("http://sgct63du2awknxkp167gwzzb.wpengine.netdna-cdn.com/wp-content/uploads/2014/12/SetAndReachGoals.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.goals-div h1 {
+	color: white;
+}
+
+.top-pic {
+	width: 400px;
+	height: 400px;
+}

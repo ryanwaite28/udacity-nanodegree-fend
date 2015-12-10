@@ -1,0 +1,156 @@
+body {
+	height: 95vh;
+	width: 100%;
+	margin: auto;
+}
+
+.place-text {
+	margin: 0; 
+	padding: 18px; 
+	border-right: 1px solid black;
+	font-family: Helvetica;
+}
+
+@media (max-width: 992px) {
+	.place-text {
+		border-right: 0;
+		border-bottom: 1px solid black;
+	}
+	.input-div {
+		padding-bottom: 10px;
+	}
+	.places-list {
+		border-top: 1px solid black;
+	}
+	.map-div {
+		border-bottom: 1px solid black;
+	}
+}
+
+.map-div {
+	height: 91vh;
+}
+
+.icon-one {
+	height: 40px;
+	width: 40px;
+}
+
+.input-div {
+	padding-top: 5px;
+}
+
+.places-list {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height:60px;
+	white-space: nowrap;
+	overflow: scroll;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.places-list li {
+	display: inline-block;
+	padding: 3px 6px 3px 6px;
+	border: 1px solid black;
+}
+
+.places-list li:last-child {
+	display: inline-block;
+}
+
+.places-list li:hover {
+	color: blue;
+	background-color: gray;
+	transition: 0.3s;
+}
+
+.places-list::-webkit-scrollbar {
+    width: 2em;
+}
+ 
+.places-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
+}
+ 
+.places-list::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.controls {
+	background-color: #fff;
+	border-radius: 2px;
+	border: 1px solid transparent;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	box-sizing: border-box;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	height: 25px;
+	margin-left: 26%;
+	margin-top: 10px;
+	outline: none;
+	/* padding: 0 11px 0 13px; */
+	text-overflow: ellipsis;
+	width: 600px;
+}
+
+.controls:focus {
+	border-color: #4d90fe;
+}
+
+.cool-bar {
+	background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid gray;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    height: 25px;
+	width: 100%;
+	outline: none;
+	text-overflow: ellipsis;
+}
+
+.nytimes-container {
+	padding: 0 10px 0 10px;
+	
+}
+
+#nytimes-header {
+	height: 48%;
+}
+
+.news-div {
+	border-left: 1px solid black;
+}
+
+.news-list {
+	height: 77vh;
+}
+
+.article-list {
+    margin: 0;
+    padding: 0;
+	overflow: scroll;
+	height: 100%;
+	white-space: wrap;
+}
+
+.article {
+    list-style-type: none;
+    padding:10px;
+    border-top: 1px solid #CCC;
+}
+.article:first-child {
+    border-top:none;
+}
+
+.text-shadow {
+	text-shadow: 2px 2px 5px gray;
+}

@@ -1,0 +1,111 @@
+body {
+	height: 99vh;
+}
+
+.closing {
+	background-color: black;
+	color: white;
+}
+
+.text-shadow {
+	text-shadow: 2px 2px 3px gray;
+}
+
+.top-list {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.top-list li {
+	list-style: none;
+	display: inline-block;
+	padding: 10px;
+}
+
+.spacer {
+	width: 100%;
+	margin: auto;
+}
+
+.selection-div {
+	width: 100%;
+	margin: auto;
+}
+
+.search-div {
+	width: 100%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.search-input {
+	margin-bottom: 10px;
+}
+
+.results-div {
+	width: 100%;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.header {
+	background-image: url('http://thinkslimmer.files.wordpress.com/2013/02/284384.jpg');
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+	width: 100%;
+}
+
+.nu-pic {
+	width: 80%;
+}
+
+.cool-box {
+	color: white;
+	background-color: black;
+	opacity: 0.9;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+}
+
+.box-shadow {
+	box-shadow: 1px 1px 3px gray;
+}
+
+.results-list, .user-list {
+	margin: 0;
+	padding: 5px;
+}
+
+.searchItem, .selected-item {
+	list-style: none;
+	padding: 10px;
+	margin: 3px;
+	background-color: #b3b3b3;
+}
+
+.searchItem:hover, .delete:hover  {
+	opacity: 0.7;
+	transition: 0.3s;
+}
+
+.delete, .searchCal, #total {
+	font-weight: bold;
+}
+
+.results-list-div {
+	width: 95%;
+	margin: auto;
+}
+
+@media (max-width: 992px) {
+	.selection-div {
+	width: 100%;
+	margin: auto;
+	margin-bottom: 60px;
+}
+}
+
+
