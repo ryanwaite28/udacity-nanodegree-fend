@@ -24,9 +24,14 @@ function initMap() {
 
     marker.addListener('click', function() {
         alert('I live in this area!');
-
     });
+	
+    startAPP();
 };
+
+function startAPP() {
+    ko.applyBindings(new ViewModel());
+}
 
 // Application ViewModel
 function ViewModel() {
@@ -235,7 +240,7 @@ function ViewModel() {
 
     // New York Times Articles: API AJAX Request
     self.getNews = function() {
-        var nytURL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q="SoHo, New York"&sort=newest&api-key=e3b29ee6890e39977d33529ea6eaff6e:12:73463344'
+        var nytURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q="SoHo, New York"&sort=newest&api-key=e3b29ee6890e39977d33529ea6eaff6e:12:73463344'
         var $nytHeaderElem = $('#nytimes-header');
         var $nytElem = $('#nytimes-articles');
 
@@ -265,5 +270,3 @@ function ViewModel() {
     self.getNews();
 
 };
-
-ko.applyBindings(new ViewModel());
