@@ -1,7 +1,6 @@
 # udacity-nanodegree-fend
 View all of my projects milestones!
 ____________________________________________________________________________________
-![](http://i.imgur.com/X3g8AsQ.png)
 ![](http://i.imgur.com/BgVQlK2.png)
 ____________________________________________________________________________________
 
