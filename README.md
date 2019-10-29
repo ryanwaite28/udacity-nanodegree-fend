@@ -4,6 +4,19 @@ ________________________________________________________________________________
 ![](http://i.imgur.com/BgVQlK2.png)
 ____________________________________________________________________________________
 
+
+### Courses
+
+- Intro to HTML and CSS
+- Version Control with Git and GitHub
+- JavaScript Basics
+- Intro to jQuery
+- Object-Oriented JavaScript
+- HTML5 Canvas
+- Website Performance Optimization
+- Intro to AJAX
+- JavaScript Design Patterns
+
 Project 1 - Porfolio Site
 http://ryanwaite28.github.io/udacity-nanodegree-fend/p1/bio-master/home.html
 
